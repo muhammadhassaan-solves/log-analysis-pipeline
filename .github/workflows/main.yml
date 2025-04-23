@@ -10,16 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Build Lambda deployment package in Amazon Linux container
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies and package Lambda
         run: |
-          docker run --rm -v "$PWD":/var/task lambci/lambda:build-python3.9 /bin/sh -c "
-            pip install psycopg2-binary -t python
-            cp lambda_function.py python/
-            cd python
-            zip -r9 ../lambda_deploy.zip .
-          "
+          python -m pip install --upgrade pip
+          pip install psycopg2-binary -t lambda_pkg
+          cp lambda_function.py lambda_pkg/
+          cd lambda_pkg
+          zip -r ../lambda_deploy.zip .
 
       - name: Deploy to AWS Lambda
         uses: appleboy/lambda-action@v0.1.9
