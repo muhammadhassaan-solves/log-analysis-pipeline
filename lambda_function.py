@@ -52,3 +52,5 @@ def lambda_handler(event, context):
       'body': json.dumps(result)
     }
 
+print("Updated for deployment test")
+
