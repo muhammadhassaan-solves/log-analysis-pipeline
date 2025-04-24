@@ -117,7 +117,7 @@ In this project, I built an end-to-end data pipeline on AWS by uploading log dat
 
 <ol>
   <li>Create GitHub Repo.</li>
-  <li>Push your lambda_function.py, lambda_deploy.zip, and requirements.txt file to this repo.</li>
+  <li>Push your lambda_function.py to the repo.</li>
   <li>Create GitHub Actions Workflow file (.github/workflows/deploy.yml).</li>
   <li>In your repo, Go to Settings > Secrets and variables > Actions > New repository secret.</li>
   <li> Add these two secrets: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY</li>
