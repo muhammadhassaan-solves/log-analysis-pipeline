@@ -1,6 +1,6 @@
 import os
 import json
-import psycopg2
+import pg8000 as psycopg2
 
 # read env vars
 DB_HOST = os.environ['DB_HOST']
