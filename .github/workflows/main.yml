@@ -1,40 +1,35 @@
-name: Deploy Lambda
+name: Deploy Lambda Function
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout repo
+      uses: actions/checkout@v3
 
-      - name: Build dependencies in Amazon Linux
-        run: |
-          mkdir lambda_pkg
-          docker run --rm \
-            -v "$PWD":/var/task \
-            lambci/lambda:build-python3.11 \
-            /bin/sh -c "pip install --upgrade pip && pip install psycopg2-binary -t /var/task/lambda_pkg"
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
 
-      - name: Copy function code
-        run: |
-          cp lambda_function.py lambda_pkg/
+    - name: Install dependencies
+      run: |
+        mkdir package
+        pip install psycopg2-binary -t package
+        cp lambda_function.py package/
+        cd package && zip -r ../lambda_deploy.zip .
 
-      - name: Zip package
-        run: |
-          cd lambda_pkg
-          zip -r ../lambda_deploy.zip .
-
-      - name: Deploy to AWS Lambda
-        uses: appleboy/lambda-action@master
-        with:
-          aws_access_key_id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region:            us-east-1
-          function_name:         logStatsFunction
-          zip_file:              lambda_deploy.zip
+    - name: Deploy to AWS Lambda
+      uses: appleboy/lambda-action@v0.1.9
+      with:
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_region: us-east-1
+        function_name: logStatsFunction
+        zip_file: lambda_deploy.zip
