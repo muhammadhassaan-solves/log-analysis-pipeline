@@ -28,7 +28,7 @@ In this project, I built an end-to-end data pipeline on AWS by uploading log dat
 </ol>
 
 <p align="center">
-  <img src="https://i.imgur.com/3ECqYXj.jpeg" alt="S3 Upload Example" width="80%" />
+  <img src="https://i.imgur.com/3ECqYXj.jpeg" alt="S3 Upload Example"  />
 </p>
 
 
@@ -51,7 +51,7 @@ In this project, I built an end-to-end data pipeline on AWS by uploading log dat
 </ol>
 
 <p align="center">
-  <img src="https://i.imgur.com/Yr9kETr.jpeg" alt="RDS Example" width="80%" />
+  <img src="https://i.imgur.com/Yr9kETr.jpeg" alt="RDS Example" />
 </p>
 
 
@@ -65,7 +65,7 @@ In this project, I built an end-to-end data pipeline on AWS by uploading log dat
 </ol>
 
 <p align="center">
-  <img src="https://i.imgur.com/ndK0MhJ.jpeg" alt="pgAdmin Example" width="80%" />
+  <img src="https://i.imgur.com/ndK0MhJ.jpeg" alt="pgAdmin Example"  />
 </p>
 
 
@@ -92,7 +92,7 @@ In this project, I built an end-to-end data pipeline on AWS by uploading log dat
 
 </ol>
 <p align="center">
-  <img src="https://i.imgur.com/1XU2l5n.jpeg" alt="Function Example" width="80%" />
+  <img src="https://i.imgur.com/1XU2l5n.jpeg" alt="Function Example"  />
 </p>
 
 
@@ -109,7 +109,7 @@ In this project, I built an end-to-end data pipeline on AWS by uploading log dat
 </ol>
 
 <p align="center">
-  <img src="https://i.imgur.com/NVV2Nzm.jpeg" alt="API Gateway Example" width="80%" />
+  <img src="https://i.imgur.com/NVV2Nzm.jpeg" alt="API Gateway  />
 </p>
 
 
@@ -124,6 +124,6 @@ In this project, I built an end-to-end data pipeline on AWS by uploading log dat
 </ol>
 
 <p align="center">
-  <img src="https://i.imgur.com/0UnnbJs.jpeg" alt="CI/CD with GitHub Actions Example" width="80%" />
+  <img src="https://i.imgur.com/0UnnbJs.jpeg" alt="CI/CD with GitHub Actions Example"  />
 </p>
 
